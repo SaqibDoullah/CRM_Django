@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- This section of the template is used to display a form for adding a new record -->
+<div class="col-md-6 offset-md-3">
+<h1>Add Record</h1>
+<br/>
+
+<!-- The form is submitted to the 'add_record' URL with a POST method -->
+<form method="POST" action="{% url 'add_record' %}">
+    <!-- CSRF token is included to protect against cross-site request forgery -->
+    {% csrf_token %}
+
+    <!-- The form fields are rendered using the 'as_p' method -->
+    {{ form.as_p }}
+
+<br/>
+  <!-- Submit button to add the record -->
+  <button type="submit" class="btn btn-secondary">Add Record</button>
+   <!-- Link to go back to the home page -->
+   <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+</form>
+
+</div>
+
+{% endblock %}
